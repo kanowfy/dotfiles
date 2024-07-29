@@ -12,6 +12,7 @@ alias sc='cedit ~/.config/sway/config'
 alias kc='cedit ~/.config/kitty/kitty.conf'
 alias nc='cedit ~/.config/nvim'
 alias c='chezmoi'
+alias v='nvim'
 
 update-grub() {
     sudo grub-mkconfig -o /boot/grub/grub.cfg
@@ -28,3 +29,11 @@ export EDITOR=nvim
 eval "$(starship init bash)"
 
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
+
+# pnpm
+export PNPM_HOME="/home/kanowfy/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
