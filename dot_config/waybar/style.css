@@ -1,8 +1,8 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: Iosevka Slab, Roboto, Roboto Condensed, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 18px;
-    font-weight: 600;
+    font-family: Roboto Condensed, Roboto, Iosevka Slab, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
     border-radius: 10px;
     margin: 3px 0;
 }
@@ -53,7 +53,9 @@ button:hover {
 }
 
 /* you can set a style on hover for any module like this */
-#pulseaudio:hover, #network:hover, #battery:hover {
+#pulseaudio:hover,
+#network:hover,
+#battery:hover {
     background-color: #FFFFFF;
     color: #000
 }
@@ -98,6 +100,7 @@ button:hover {
 #pulseaudio,
 #wireplumber,
 #custom-media,
+#custom-disk,
 #tray,
 #mode,
 #idle_inhibitor,
@@ -143,7 +146,8 @@ If workspaces is the rightmost module, omit right margin
 }
 */
 
-#battery.charging, #battery.plugged {
+#battery.charging,
+#battery.plugged {
     color: #ffffff;
     background-color: #26A65B;
 }
@@ -194,11 +198,11 @@ label:focus {
     color: #000000;
 }
 
-#tray > .passive {
+#tray>.passive {
     -gtk-icon-effect: dim;
 }
 
-#tray > .needs-attention {
+#tray>.needs-attention {
     -gtk-icon-effect: highlight;
     background-color: #eb4d4b;
 }
@@ -245,11 +249,11 @@ label:focus {
     min-width: 16px;
 }
 
-#keyboard-state > label {
+#keyboard-state>label {
     padding: 0 5px;
 }
 
-#keyboard-state > label.locked {
+#keyboard-state>label.locked {
     background: rgba(0, 0, 0, 0.2);
 }
 
@@ -258,7 +262,7 @@ label:focus {
 }
 
 #scratchpad.empty {
-	background-color: transparent;
+    background-color: transparent;
 }
 
 #privacy {
