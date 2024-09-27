@@ -13,19 +13,21 @@
         "custom/media",
     ],
     "modules-center": [
-        "clock"
+        //"clock",
+        "custom/clock"
         //"sway/window"
     ],
     "modules-right": [
         "mpd",
         //"idle_inhibitor",
         "pulseaudio",
+        "custom/disk",
         "network",
         //"power-profiles-daemon",
         //"cpu",
         //"memory",
-        //"temperature",
-        //"backlight",
+        "temperature",
+        "backlight",
         //"keyboard-state",
         //"sway/language",
         "battery",
@@ -199,5 +201,15 @@
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    },
+    "custom/clock": {
+        "format": "🕒 {}",
+        "exec": "date +\"%H:%M, %A %b-%d-%Y\"",
+        "interval": 60
+    },
+    "custom/disk": {
+        "format": "{} 🖴",
+        "exec": "$HOME/scripts/disk-usage.sh",
+        "interval": 300
     }
 }
