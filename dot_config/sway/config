@@ -5,10 +5,10 @@
 # Read `man 5 sway` for a complete reference.
 
 ### No border/titlebar
-#default_border pixel none
-#default_floating_border none
-#titlebar_padding 1
-#titlebar_border_thickness 0
+default_border pixel 3px
+default_floating_border none
+titlebar_padding 1
+titlebar_border_thickness 0
 
 set $focused_bg #555555
 set $focused_fg #CCCCCC
@@ -70,13 +70,12 @@ output * bg /home/kanowfy/Downloads/wallhaven-72pxdv_2560x1440.png fill
 ### Input configuration
 #
 # Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
+input "ELAN061B:00 04F3:309E Touchpad" {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+    middle_emulation enabled
+}
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
@@ -220,7 +219,18 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
-bindsym $mod+m output "HDMI-A-1" enable; output "eDP-1" disable
+
+# Second monitor only
+bindsym $mod+m output "HDMI-A-1" mode 1920x1080@180Hz enable; output "eDP-1" disable
+
+# Volume
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+# Brightness (primary monitor only)
+bindsym XF86MonBrightnessUp exec brightnessctl set +10%
+bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 
 #
 # Status Bar:
