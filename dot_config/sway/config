@@ -232,6 +232,13 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86MonBrightnessUp exec brightnessctl set +10%
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 
+# Screenshot
+bindsym Print exec grim - | wl-copy
+
+# Language
+bindsym $mod+i exec ibus engine xkb:us::eng
+bindsym $mod+Shift+i exec ibus engine Bamboo
+
 #
 # Status Bar:
 #
@@ -241,3 +248,7 @@ bar {
 }
 
 include /etc/sway/config.d/*
+
+# Autostart
+exec ibus-daemon -dxr
+exec nm-applet --indicator
